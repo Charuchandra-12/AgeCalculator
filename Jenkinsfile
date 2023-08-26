@@ -30,5 +30,15 @@ pipeline {
       }
     }
 
+    stage('Login into Dockerhub') {
+      environment {
+        DOCKERHUB_USER = 'webhunter2017@gmail.com'
+        DOCKERHUB_PASSWORD = 'Dockerhub@12@2023@12'
+      }
+      steps {
+        sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
+      }
+    }
+
   }
 }
