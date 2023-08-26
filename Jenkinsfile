@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('Adding logs') {
-      steps {
-        sh 'ls -ltr'
+      parallel {
+        stage('Adding logs') {
+          steps {
+            sh 'ls -ltr'
+          }
+        }
+
+        stage('displaying contents') {
+          steps {
+            sh 'cat index.html'
+          }
+        }
+
       }
     }
 
